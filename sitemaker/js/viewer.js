@@ -141,7 +141,7 @@ function doGrayscales()
 }
 
 function loadData(){
-    $.put(ajax_url,{action:'loadData',project:project},function(data){
+    $.post(ajax_url,{action:'loadData',project:project},function(data){
         if(data !== '') {
             var d = $.parseJSON(data);
             $.getJSON(d['data_file'], function (data) {
@@ -922,7 +922,7 @@ function loadTemplate(){
 
     if(typeof fillQuests !== "undefined" && iframe.contents().find('.ct-addquests_wrapper').length === 0)
     {
-        $.put(ajax_url,{action:'loadQuestionsView',project:project},function(data) {
+        $.post(ajax_url,{action:'loadQuestionsView',project:project},function(data) {
             if (data != '') {
                 template_val.questions = $.parseJSON(data);
                 if (template_val.questions && template_val.questions.length > 0) {
@@ -1303,7 +1303,7 @@ function parseLinks(text) {
 
 function loadTemplateData(){
 
-    $.put(ajax_url,{action:'loadTemplateData',project:project},function(data){
+    $.post(ajax_url,{action:'loadTemplateData',project:project},function(data){
         if(data !== '' && data !== 'false') {
             var d = $.parseJSON(data);
             template_val = d;
