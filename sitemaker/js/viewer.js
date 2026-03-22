@@ -1,4 +1,4 @@
-var inp;1
+var inp;
 var cursect = 0;
 var sections = [];
 var offsections = [];
