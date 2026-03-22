@@ -7,14 +7,14 @@
         <meta name="color-scheme" content="only light">
         <meta name="supported-color-schemes" content="light">
         <title>Сайтмейкер</title>
-        <link rel="stylesheet" href="/sitemaker/css/style.min.css?v=1773951935">
-        <link rel="stylesheet" href="/sitemaker/css/slick.css">
-        <link rel="stylesheet" href="/sitemaker/css/fancybox.min.css">
-        <script src="/sitemaker/js/jquery-3.6.0.js" type="text/javascript"></script>
-        <script src="/sitemaker/js/slick.min.js" type="text/javascript"></script>
-        <script src="/sitemaker/js/fancybox.umd.js" type="text/javascript"></script>
-        <link rel="stylesheet" id="headerStyle" href="/sitemaker/css/fontcss/forumt.min.css?v=4">
-        <link rel="stylesheet" id="textStyle" href="/sitemaker/css/fontcss/monsterrat.min.css?v=4">
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="css/slick.css">
+        <link rel="stylesheet" href="css/fancybox.min.css">
+        <script src="js/jquery-3.6.0.js" type="text/javascript"></script>
+        <script src="js/slick.min.js" type="text/javascript"></script>
+        <script src="js/fancybox.umd.js" type="text/javascript"></script>
+        <link rel="stylesheet" id="headerStyle" href="css/fontcss/forumt.min.css">
+        <link rel="stylesheet" id="textStyle" href="css/fontcss/monsterrat.min.css">
     </head>
     <script>
         // console.log(parent);
@@ -24,7 +24,7 @@
         var language = 'ru';
     </script>
     <body class="sm-loader sm-template50 sm-color4 sm-scroll_type-1 sm-scroll_speed-1 sm-project-387c1c0c3ac9904864309311a86933d6 sm-hfont-25" data-project-id="16676" data-lang="ru">
-        <link rel="stylesheet" href="/sitemaker/templates/template49/css/style.min.css?v=1761637025">
+        <link rel="stylesheet" href="sitemaker/templates/template49/css/style.min.css">
         <main>
             <div class="sm-mob-btn">
                 <div class="sm-button open-modal">Подтвердить присутствие</div>
