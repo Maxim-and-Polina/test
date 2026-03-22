@@ -1,0 +1,13 @@
+{
+    "GROOM_TEL": "79268887788",
+    "BRIDE_TEL": "79167778877",
+    "CONTACTS_LINK": {"type": "3", "value": "wedwed_russia"},
+    "LOCATION_MAP": "https://maps.google.com/...",
+    "TIMING_1_0": "15:00",
+    "TIMING_1_1": "Сбор гостей",
+    "TIMING_2_0": "16:00",
+    "TIMING_2_1": "Торжественная церемония",
+    "DRESSCODE_COLORS": ["#FF69B4", "#87CEEB"],
+    "OWN_TITLE": "Наш особенный день",
+    "OWN_TEXT": "Будем рады видеть вас на нашей свадьбе!"
+}
