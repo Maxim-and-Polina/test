@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<!--    <head>
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </section>
-            <!-- Этот момент настал --!>
+            <!-- Этот момент настал -->
             <section class="sm-moment sm-edit" data-type="2" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-container">
                     <div class="sm-moment__wrapper">
@@ -75,7 +75,7 @@
                     </div>
                 </div>
             </section>
-            <!-- Свадьба состоится --!>
+            <!-- Свадьба состоится -->
             <section class="sm-date sm-edit" data-type="3" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-background-photo texture__bg"></div>
                 <div class="sm-container">
@@ -144,7 +144,7 @@
                     </div>
                 </div>
             </section>
-            <!-- Локация --!>
+            <!-- Локация -->
             <section class="sm-location sm-edit" data-type="4" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-container">
                     <div class="sm-location__content">
@@ -173,7 +173,7 @@
                     </div>
                 </div>
             </section>
-            <!--тайминги--!>
+            <!--тайминги-->
             <section class="sm-timing sm-edit" data-type="5" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-container">
                     <h2 class="sm-cormorantRegular-70-30" data-sm-text="TIMING_TITLE"></h2>
@@ -257,8 +257,8 @@
                     </div>
                 </div>
             </section>
-            <!--/тайминги--!>
-            <!-- дресс-код --!>
+            <!--/тайминги-->
+            <!-- дресс-код -->
             <section class="sm-dress-code sm-edit" data-type="6" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-background-photo shadow texture__bg"></div>
                 <div class="sm-container">
@@ -281,7 +281,7 @@
                     </div>
                 </div>
             </section>
-            <!--до нашей свадьбы осталось--!>
+            <!--до нашей свадьбы осталось-->
             <section class="sm-timer sm-edit" data-type="7" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-container">
                     <div class="sm-timer__container">
@@ -343,7 +343,7 @@
                     </div>
                 </div>
             </section>
-            <!-- Пожелания --!>
+            <!-- Пожелания -->
             <section class="sm-wishes sm-edit" data-type="8" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-container">
                     <div class="sm-wishes__content">
@@ -381,7 +381,7 @@
                     </div>
                 </div>
             </section>
-            <!-- связаться с нами --!>
+            <!-- связаться с нами -->
             <section class="sm-contact sm-edit" data-type="9" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-container">
                     <div class="sm-contact__shell text-paint-border">
@@ -402,7 +402,7 @@
                     </div>
                 </div>
             </section>
-            <!-- Анкета гостя Форма --!>
+            <!-- Анкета гостя Форма -->
             <section class="sm-questionnaire sm-edit" data-type="10" data-jsscroll="" data-jsscroll-slide-top="">
                 <div class="sm-questionnaire__container">
                     <div class="sm-questionnaire__top">
@@ -462,11 +462,11 @@
                     </div>
                 </div>
             </section>
-            <!-- Фото --!>
+            <!-- Фото -->
             <section class="sm-bg-image sm-edit" data-type="11" data-jsscroll="" data-jsscroll-slide-top="">
                 <img class="sm-bg-image_photo" src="/upload/z.gif" data-sm-src="SPLASH" alt="img">
             </section>
-            <!-- Модальные окна --!>
+            <!-- Модальные окна -->
             <div class="sm-modal" id="modal">
                 <div class="sm-container">
                     <div class="sm-modal-close">
@@ -534,7 +534,7 @@
                 </div>
             </div>
         </main>
-        <!-- Футер --!>
+        <!-- Футер -->
         <section class="sm-footer sm-edit" data-type="12" data-jsscroll="" data-jsscroll-slide-top="">
             <div class="sm-footer__img">
                 <img src="/sitemaker/templates/template49/img/footer.webp" alt="">
@@ -974,6 +974,6 @@
                 </div>
             </div>
         </div>
-        <div class="sm-curtains"></div>-->
+        <div class="sm-curtains"></div>
     </body>
 </html>
