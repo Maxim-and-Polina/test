@@ -16,7 +16,7 @@
     "OWN_TITLE": "Наша свадьба",
     "OWN_TEXT": "Будем рады видеть вас на нашем празднике!",
     "OWN_IMAGES": [],
-    "OWN_COLORS": ["#ffffff", "#000000"],
+    "OWN_COLORS": ["#ffffff", "#000000", "#ffffff", "#000000", "#000000"],
     "OWN_AFTER": 0,
     "OWN_ALIGN": 1,
     "HELLO_TITLE": "Дорогие гости!",
