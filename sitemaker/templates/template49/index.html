@@ -630,90 +630,154 @@
                     $('.sm-own_wrapper-img.slick-initialized').slick('unslick')
                 }
 
-                var own_timer_166, own_timer_211;
+                var own_timer_166 = null;
+				var own_timer_211 = null;
 
                 function ownSlick() {
-                    // Сюда надо вкорячить data-section проверку
-                    $.each($('.sm-own_wrapper-img'), function() {
-                        var that = $(this);
-                        var smim = that.find('img');
-                        var d = that.parents('.sm-edit').data('type')
-
-                        if (smim.length > 1 && typeof that.attr('data-asp') != 'undefined') {
-                            if (d == 166) {
-                                clearTimeout(own_timer_166);
-                                own_timer_166 = setTimeout(function() {
-                                    if (that.hasClass('slick-initialized')) {
-                                        that.slick('unslick')
-                                    }
-                                    if (smim.length > 1 && that.attr('data-asp') != '4' && that.attr('data-asp') != '7') {
-                                        that.slick({
-                                            dots: false,
-                                            infinite: true,
-                                            slidesToShow: 1,
-                                            adaptiveHeight: true,
-                                            slidesToScroll: 1,
-                                            prevArrow: "<div class='sm-sl-arrow sm-prev'></div>",
-                                            nextArrow: "<div class='sm-sl-arrow sm-next'></div>",
-                                        })
-                                    }
-                                }, 500)
-                            } else {
-                                clearTimeout(own_timer_211);
-                                own_timer_211 = setTimeout(function() {
-                                    if (that.hasClass('slick-initialized')) {
-                                        that.slick('unslick')
-                                    }
-                                    if (smim.length > 1 && that.attr('data-asp') != '4' && that.attr('data-asp') != '7') {
-                                        that.slick({
-                                            dots: false,
-                                            infinite: true,
-                                            slidesToShow: 1,
-                                            adaptiveHeight: true,
-                                            slidesToScroll: 1,
-                                            prevArrow: "<div class='sm-sl-arrow sm-prev'></div>",
-                                            nextArrow: "<div class='sm-sl-arrow sm-next'></div>",
-                                        })
-                                    }
-                                }, 500)
+    				console.log('ownSlick called');
+    
+    				try {
+        			// Сюда надо вкорячить data-section проверку
+        				$.each($('.sm-own_wrapper-img'), function() {
+            var that = $(this);
+            var smim = that.find('img');
+            var d = that.parents('.sm-edit').data('type');
+            
+            // Проверяем, что элемент существует и имеет правильные атрибуты
+            if (!that.length) return;
+            
+            if (smim.length > 1 && typeof that.attr('data-asp') != 'undefined') {
+                if (d == 166) {
+                    // Очищаем предыдущий таймер
+                    if (own_timer_166) clearTimeout(own_timer_166);
+                    
+                    own_timer_166 = setTimeout(function() {
+                        try {
+                            if (!that.length) return;
+                            
+                            // Проверяем, что слайдер инициализирован
+                            if (that.hasClass('slick-initialized')) {
+                                if (typeof that.slick === 'function') {
+                                    that.slick('unslick');
+                                }
                             }
-
-                        } else {
-                            if (d == 166) {
-                                clearTimeout(own_timer_166);
-                                own_timer_166 = setTimeout(function() {
-                                    if (that.hasClass('slick-initialized')) {
-                                        that.slick('unslick')
-                                    }
-                                }, 500)
-                            } else {
-                                clearTimeout(own_timer_211);
-                                own_timer_211 = setTimeout(function() {
-                                    if (that.hasClass('slick-initialized')) {
-                                        that.slick('unslick')
-                                    }
-                                }, 500)
+                            
+                            // Проверяем, нужно ли инициализировать слайдер
+                            if (smim.length > 1 && that.attr('data-asp') != '4' && that.attr('data-asp') != '7') {
+                                if (typeof that.slick === 'function') {
+                                    that.slick({
+                                        dots: false,
+                                        infinite: true,
+                                        slidesToShow: 1,
+                                        adaptiveHeight: true,
+                                        slidesToScroll: 1,
+                                        prevArrow: "<div class='sm-sl-arrow sm-prev'></div>",
+                                        nextArrow: "<div class='sm-sl-arrow sm-next'></div>",
+                                    });
+                                    console.log('Slider initialized for block type:', d);
+                                } else {
+                                    console.warn('slick function not available');
+                                }
                             }
+                        } catch(e) {
+                            console.error('Error in ownSlick timer (166):', e);
                         }
-                    })
+                    }, 500);
+                } else {
+                    // Очищаем предыдущий таймер
+                    if (own_timer_211) clearTimeout(own_timer_211);
+                    
+                    own_timer_211 = setTimeout(function() {
+                        try {
+                            if (!that.length) return;
+                            
+                            // Проверяем, что слайдер инициализирован
+                            if (that.hasClass('slick-initialized')) {
+                                if (typeof that.slick === 'function') {
+                                    that.slick('unslick');
+                                }
+                            }
+                            
+                            // Проверяем, нужно ли инициализировать слайдер
+                            if (smim.length > 1 && that.attr('data-asp') != '4' && that.attr('data-asp') != '7') {
+                                if (typeof that.slick === 'function') {
+                                    that.slick({
+                                        dots: false,
+                                        infinite: true,
+                                        slidesToShow: 1,
+                                        adaptiveHeight: true,
+                                        slidesToScroll: 1,
+                                        prevArrow: "<div class='sm-sl-arrow sm-prev'></div>",
+                                        nextArrow: "<div class='sm-sl-arrow sm-next'></div>",
+                                    });
+                                    console.log('Slider initialized for block type:', d);
+                                } else {
+                                    console.warn('slick function not available');
+                                }
+                            }
+                        } catch(e) {
+                            console.error('Error in ownSlick timer (211):', e);
+                        }
+                    }, 500);
                 }
-
-                $(window).on('resize', function() {
-                    if ($('.sm-own_wrapper-img img').length > 1) {
-                        ownSlick();
-                    }
-                })
-
-                if (typeof window.parent.demo_view != 'undefined') {
-                    // для демо
-                    var demo_view = window.parent.demo_view;
-
-                    if (demo_view) {
-                        $('[data-sm-tel]').toggleClass('sm-demo_view', true);
-                        $('[data-sm-contact-mes]').toggleClass('sm-demo_view', true);
-                        $('[data-sm-anketa-send]').toggleClass('sm-hidden', true);
-                    }
+            } else {
+                // Если нет нескольких изображений или нет data-asp, просто очищаем слайдер
+                if (d == 166) {
+                    if (own_timer_166) clearTimeout(own_timer_166);
+                    own_timer_166 = setTimeout(function() {
+                        try {
+                            if (that.length && that.hasClass('slick-initialized') && typeof that.slick === 'function') {
+                                that.slick('unslick');
+                            }
+                        } catch(e) {
+                            console.error('Error unslicking slider (166):', e);
+                        }
+                    }, 500);
+                } else {
+                    if (own_timer_211) clearTimeout(own_timer_211);
+                    own_timer_211 = setTimeout(function() {
+                        try {
+                            if (that.length && that.hasClass('slick-initialized') && typeof that.slick === 'function') {
+                                that.slick('unslick');
+                            }
+                        } catch(e) {
+                            console.error('Error unslicking slider (211):', e);
+                        }
+                    }, 500);
                 }
+            }
+        });
+    } catch(e) {
+        console.error('Error in ownSlick:', e);
+    }
+}
+
+// Обработчик resize
+$(window).on('resize', function() {
+    try {
+        if ($('.sm-own_wrapper-img img').length > 1) {
+            ownSlick();
+        }
+    } catch(e) {
+        console.error('Error in resize handler:', e);
+    }
+});
+
+// Демо-режим
+if (typeof window.parent.demo_view != 'undefined') {
+    var demo_view = window.parent.demo_view;
+    
+    if (demo_view) {
+        try {
+            $('[data-sm-tel]').toggleClass('sm-demo_view', true);
+            $('[data-sm-contact-mes]').toggleClass('sm-demo_view', true);
+            $('[data-sm-anketa-send]').toggleClass('sm-hidden', true);
+            console.log('Demo mode enabled');
+        } catch(e) {
+            console.error('Error setting up demo mode:', e);
+        }
+    }
+}
 
                 function checkVisibility(element, callback) {
                     const rect = element.getBoundingClientRect();
