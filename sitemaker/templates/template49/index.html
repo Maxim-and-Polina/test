@@ -577,29 +577,42 @@
                     startAll();
                     setTimeout(function() {
                         if ($('.ct-demonstration', window.parent.document).length > 0) {
-                            $.each(parent.offsections, function(k, v) {
+                        // Исправлено: проверяем, что offsections существует и является массивом
+                            if (window.parent.offsections && window.parent.offsections.length) {
+                                $.each(window.parent.offsections, function(k, v) {
                                 $('.sm-edit[data-type="' + (v + 1) + '"]').toggleClass('sm-hidden', true);
-                            })
-                            $('body').append('<div class="sm-madewithlove">Made with love on <a href="https://wedwed.ru/invitations/" target="_blank"><img src="/sitemaker/images/mwl.svg"></a></div>').toggleClass('withlove');
-                            if ($('[data-sm-text="ANKETA_ANSWER1"]').parents('.sm-edit').hasClass('sm-hidden')) {
-                                $('.sm-data__confirm-btn, .scrollto, [data-src="#sm-mod"], .sm-open-modal, .open-modal, #open-modal-form').toggleClass('sm-hidden', true);
-                                $('.sm-madewithlove').toggleClass('sm-shortmade', true);
-                            }
-                            var script = document.createElement('script');
-                            script.type = 'text/javascript';
-                            script.src = '../../js/js-scroll-animations.min.js';
-                            $("body").append(script);
-                            $('html').addClass('animating');
-                            $('body').toggleClass('sm-editor_preview', false);
-                            const jsScroll = jsScrollAnimations();
-                            jsScroll.init();
-
-                            setTimeout(function() {
-                                $('body').toggleClass('sm-loader', false);
-                            }, 500);
-                        } else {
-                            $('body').toggleClass('sm-loader', false);
+                            });
                         }
+        
+                        $('body').append('<div class="sm-madewithlove">Made with love on <a href="https://wedwed.ru/invitations/" target="_blank"><img src="/sitemaker/images/mwl.svg"></a></div>').toggleClass('withlove');
+        
+                        if ($('[data-sm-text="ANKETA_ANSWER1"]').parents('.sm-edit').hasClass('sm-hidden')) {
+                            $('.sm-data__confirm-btn, .scrollto, [data-src="#sm-mod"], .sm-open-modal, .open-modal, #open-modal-form').toggleClass('sm-hidden', true);
+                            $('.sm-madewithlove').toggleClass('sm-shortmade', true);
+                        }
+        
+                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = '../../js/js-scroll-animations.min.js';
+                        $("body").append(script);
+                        $('html').addClass('animating');
+                        $('body').toggleClass('sm-editor_preview', false);
+        
+                        // Проверяем, что jsScrollAnimations существует
+                        if (typeof jsScrollAnimations !== 'undefined') {
+                            const jsScroll = jsScrollAnimations();
+                            if (jsScroll && typeof jsScroll.init === 'function') {
+                                jsScroll.init();
+                            }
+                        }
+
+                        setTimeout(function() {
+                            $('body').toggleClass('sm-loader', false);
+                        }, 500);
+                    } else {
+                        $('body').toggleClass('sm-loader', false);
+                    }
+                }, 100);
 
                         var parent2 = window.parent.document;
                         $(parent2).find('.ct-device_switcher').toggleClass('ct-hidden', false);
