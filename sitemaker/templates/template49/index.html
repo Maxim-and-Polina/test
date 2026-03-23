@@ -570,142 +570,60 @@
                 var own_timer;
                 var loadedAll = false;
 
-               function initAll() {
-                    $.each($('.slick-initialized'), function() {
-                        $(this).slick("unslick");
+              function initAll(){
+            $.each($('.slick-initialized'),function(){
+                $(this).slick("unslick");
+            })
+            startAll();
+            setTimeout(function () {
+                if( $('.ct-demonstration', window.parent.document).length > 0) {
+                    $.each(parent.offsections,function(k,v){
+                        $('.sm-edit[data-type="'+(v + 1)+'"]').toggleClass('sm-hidden',true);
                     })
-                    startAll();
-                    setTimeout(function() {
-                        if ($('.ct-demonstration', window.parent.document).length > 0) {
-                            $.each(parent.offsections, function(k, v) {
-                                $('.sm-edit[data-type="' + (v + 1) + '"]').toggleClass('sm-hidden', true);
-                            })
-                            if ($('[data-sm-text="ANKETA_ANSWER1"]').parents('.sm-edit').hasClass('sm-hidden')) {
-                                $('.sm-data__confirm-btn, .scrollto, [data-src="#sm-mod"], .sm-open-modal, .open-modal, #open-modal-form').toggleClass('sm-hidden', true);
-                                $('.sm-madewithlove').toggleClass('sm-shortmade', true);
-                            }
-                            var script = document.createElement('script');
-                            script.type = 'text/javascript';
-                            script.src = '/sitemaker/js/js-scroll-animations.min.js';
-                            $("body").append(script);
-                            $('html').addClass('animating');
-                            $('body').toggleClass('sm-editor_preview', false);
-                            const jsScroll = jsScrollAnimations();
-                            jsScroll.init();
-
-                            setTimeout(function() {
-                                $('body').toggleClass('sm-loader', false);
-                            }, 500);
-                        } else {
-                            $('body').toggleClass('sm-loader', false);
-                        }
-                        
-                    var sending = false;
-                    if ($('[data-sm-anketa-send]').length > 0) {
-                        if ($('[data-sm-anketa-name]').length > 1) {
-                            $('[data-sm-anketa-name]').on('input', function() {
-                                var that = $(this);
-                                $.each($('[data-sm-anketa-name]'), function() {
-                                    if ($(this) != that) {
-                                        $(this).val(that.val())
-                                    }
-                                })
-                            })
-
-                            $('[data-answer]').on('change', function() {
-                                var that = $(this);
-
-                                $.each($('[data-answer]'), function() {
-                                    if ($(this).attr('value') == that.attr('value')) {
-                                        $(this).attr('checked', true);
-                                    } else {
-                                        $(this).attr('checked', false);
-                                    }
-                                })
-                            })
-
-                            $('[data-sm-anketa-company]').on('input', function() {
-                                var that = $(this);
-                                $.each($('[data-sm-anketa-company]'), function() {
-                                    if ($(this) != that) {
-                                        $(this).val(that.val())
-                                    }
-                                })
-                            })
-                        }
-                        $('[data-sm-anketa-send]').click(function(e) {
-                            if (!sending) {
-                                e.preventDefault();
-
-                                var name = $('[data-sm-anketa-name]').val()
-                                var company = $('input[data-sm-anketa-company]').val()
-
-                                var tcompany = $('textarea[data-sm-anketa-company]').val()
-                                var answer = 0;
-                                var elem = $('[data-answer]')[0].tagName.toLowerCase();
-
-                                if (tcompany != '' && $('textarea[data-sm-anketa-company]').length > 0) {
-                                    company = tcompany;
-                                }
-
-                                var alc = []
-                                $.each($('input[name="alco[]"]:checked'), function() {
-                                    alc.push($(this).val());
-                                });
-
-                                if (elem == 'input') {
-                                    answer = $('[data-answer]:checked').val();
-                                } else if (elem == 'p') {
-                                    answer = $('[data-answer].active').attr('data-answer');
-                                }
-
-                                var addq = $('[data-sm-anketa][data-forq]')
-                                var quest = {};
-
-                                if (addq.length > 0) {
-                                    $.each(addq, function(k, v) {
-                                        var qid = $(this).attr('data-forq');
-                                        if (!quest["" + qid] || typeof (quest["" + qid]) == 'undefined') {
-                                            quest["" + qid] = [];
-                                        }
-
-                                        if ($('input[name="' + qid + '"]').length > 0) {
-                                            quest["" + qid] = '';
-                                            $.each($('input[name="' + qid + '"]'), function() {
-                                                if ($(this).val() != '') {
-                                                    quest["" + qid] = $(this).val();
-                                                }
-                                            })
-
-                                        } else {
-                                            $.each($('input[name="' + qid + '[]"]:checked'), function() {
-                                                if ($.inArray($(this).val(), quest["" + qid]) === -1) {
-                                                    quest["" + qid].push($(this).val());
-                                                }
-                                            })
-                                        }
-                                    })
-                                }
-
-                                if (name != '' && answer > 0) {
-                                    sending = true;
-                                    $.post('/sitemaker/ajax_alpha.php', {
-                                        action: 'answer',
-                                        answer: answer,
-                                        project: project,
-                                        data: name,
-                                        company: company,
-                                        alco: JSON.stringify(alc),
-                                        quest: quest
-                                    }, function(data) {})
-                                    thankYou();
-                                }
-
-                                return false;
-                            }
-                        })
+	                                    if($('[data-sm-text="ANKETA_ANSWER1"]').parents('.sm-edit').hasClass('sm-hidden'))
+                    {
+                        $('.sm-data__confirm-btn, .scrollto, [data-src="#sm-mod"], .sm-open-modal, .open-modal, #open-modal-form').toggleClass('sm-hidden',true);
+                        $('.sm-madewithlove').toggleClass('sm-shortmade',true);
                     }
+	                                        var script = document.createElement('script');
+                        script.type = 'text/javascript';
+                        script.src = 'js/js-scroll-animations.min.js';
+                        $("body").append(script);
+                        $('html').addClass('animating');
+                        $('body').toggleClass('sm-editor_preview', false);
+                        const jsScroll = jsScrollAnimations();
+                        jsScroll.init();
+	                
+                    setTimeout(function () {
+                        $('body').toggleClass('sm-loader', false);
+                    },500);
                 }
+                else
+                {
+                    $('body').toggleClass('sm-loader', false);
+                }
+
+                var parent2 = window.parent.document;
+                $(parent2).find('.ct-device_switcher').toggleClass('ct-hidden', false);
+
+                Fancybox.bind('[data-fancybox]', {
+                        touch: true,
+                        closeBtn: true,
+                        Thumbs: false,
+                        caption: false,
+                        autoScale: true,
+                        on : {
+                            "reveal": (fancybox) => {
+                                var slides = fancybox.carousel.slides;
+                                $.each(slides,function(k,v){
+                                    $(v.el).toggleClass('sm-grayscale',$(v.thumbEl).hasClass('sm-grayscale'))
+                                })
+                            },
+                        }
+                    }
+                );
+            }, 500)
+	            }
 
                 function ownUnSlick() {
                     console.log('unslicking');
