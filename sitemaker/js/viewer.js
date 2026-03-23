@@ -678,21 +678,7 @@ function loadTemplate(){
         iframe.contents().find('[data-sm-text="ANKETA_DRINKS_QUESTION"]').text('Ваши предпочтения');
     }
 
-    try {
-        if (iframe[0] && iframe[0].contentWindow) {
-            if (typeof iframe[0].contentWindow.initAll === 'function') {
-                iframe[0].contentWindow.initAll();
-            } else if (typeof iframe[0].contentWindow.startAll === 'function') {
-                iframe[0].contentWindow.startAll();
-            } else {
-                console.log('No initialization function found in iframe');
-            }
-        } else {
-            console.log('Iframe not ready');
-        }
-    } catch(e) {
-        console.log('Error calling iframe init function:', e.message);
-    }    
+    iframe[0].contentWindow.initAll();
 
     // iframe.contents().find('[data-sm-anketa-toggle]').toggleClass('sm-hidden', d_alco == '0');
     iframe.contents().find('[data-sm-anketa-toggle] > [data-sm-text="ANKETA_DRINKS_QUESTION"]:not([data-forq])').toggleClass('sm-hidden', d_alco == '0');
