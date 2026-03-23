@@ -1335,7 +1335,7 @@ function loadTemplateData() {
 
 function initTimingIcons() {
 
-    $.getJSON('../templates/template49/config.json', function (data) {
+    $.getJSON('sitemaker/templates/template49/config.json', function (data) {
         if (data) {
 
             template_config = data;
