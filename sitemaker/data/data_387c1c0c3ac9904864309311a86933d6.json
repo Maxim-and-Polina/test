@@ -1,9 +1,8 @@
 {
     "GROOM_TEL": "79268887788",
     "BRIDE_TEL": "79167778877",
-    "CONTACTS_LINK": {"type": "3", "value": "wedwed_russia"},
+    "CONTACTS_LINK": {"type": "3", "value": "MoodeR"},
     "LOCATION_MAP": "",
-    "WISH_WISHLIST": "",
     "TIMING_1_0": "15:00",
     "TIMING_1_1": "Сбор гостей",
     "TIMING_2_0": "16:00",
@@ -15,10 +14,7 @@
     "DRESSCODE_COLORS": ["#FF69B4", "#87CEEB"],
     "OWN_TITLE": "Наша свадьба",
     "OWN_TEXT": "Будем рады видеть вас на нашем празднике!",
-    "OWN_IMAGES": [],
     "OWN_COLORS": ["#ffffff", "#000000", "#ffffff", "#000000", "#000000"],
-    "OWN_AFTER": 0,
-    "OWN_ALIGN": 1,
     "HELLO_TITLE": "Дорогие гости!",
     "HELLO_TEXT": "Приглашаем вас на нашу свадьбу",
     "MAIN_TIMING": "15:00"
