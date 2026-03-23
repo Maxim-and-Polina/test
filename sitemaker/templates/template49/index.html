@@ -604,35 +604,15 @@
                             if (jsScroll && typeof jsScroll.init === 'function') {
                                 jsScroll.init();
                             }
-                        }
+                            }
 
                         setTimeout(function() {
-                            try {
-                                console.log('Calling iframe initialization...');
-        
-                                if (iframe[0] && iframe[0].contentWindow) {
-                                    const iframeWin = iframe[0].contentWindow;
-            
-                                    if (typeof iframeWin.initAll === 'function') {
-                                        iframeWin.initAll();
-                                        console.log('initAll called successfully');
-                                    } else if (typeof iframeWin.startAll === 'function') {
-                                        iframeWin.startAll();
-                                        console.log('startAll called successfully');
-                                    } else {
-                                        console.warn('No initialization function found in iframe');
-                                    // Создаём заглушку, чтобы избежать дальнейших ошибок
-                                        iframeWin.initAll = function() {
-                                        console.log('Stub initAll executed');
-                                        };
-                                    }
-                            } else {
-                                console.warn('Iframe not available');
-                            }
-                            } catch(e) {
-                                console.error('Error calling iframe init function:', e.message);
-                            }
-                        }, 500);
+                            $('body').toggleClass('sm-loader', false);
+                            }, 500);
+                        } else {
+                            $('body').toggleClass('sm-loader', false);
+                        }
+                    }, 100);
 
                     var sending = false;
                     if ($('[data-sm-anketa-send]').length > 0) {
