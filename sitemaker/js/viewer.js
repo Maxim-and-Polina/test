@@ -647,7 +647,7 @@ function loadTemplate(){
             iv1 = phonePrepareView(iv);
             iv2 = phonePrepare(iv);
             if (iv != '') {
-                iframe.contents().find('[data-sm-tel="' + ik.toUpperCase() + '"]').prop('href', 'tel:' + iv2).text('+' + iv1);
+                iframe.contents().find('[data-sm-tel="' + ik.toUpperCase() + '"]').prop('href', 'tel:+' + iv2).text('+' + iv1);
             }
 
             iframe.contents().find('[data-sm-tel="' + ik.toUpperCase() + '"]').toggleClass('sm-hidden', iv == '');
