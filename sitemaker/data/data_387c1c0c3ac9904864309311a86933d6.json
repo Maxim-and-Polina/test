@@ -3,7 +3,7 @@
     "BRIDE_TEL": "79167778877",
     "CONTACTS_LINK": {"type": "3", "value": "MoodeR"},
     "LOCATION_MAP": "",
-    "LOCATION_PHOTO": "/../test/sitemaker/template/template49/img/the_terrace.jpg",
+    "LOCATION_PHOTO": "/templates/template49/img/the_terrace.jpg",
     "TIMING_1_0": "15:00",
     "TIMING_1_1": "Сбор гостей",
     "TIMING_2_0": "16:00",
