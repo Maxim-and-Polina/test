@@ -1359,6 +1359,35 @@ function initTimingIcons() {
     })
 }
 
+function initBackgroundMusic() {
+    // Получаем iframe
+    var iframe = document.querySelector('iframe');
+    
+    if (iframe && iframe.contentDocument) {
+        var iframeDoc = iframe.contentDocument;
+        
+        // Создаём аудио элемент внутри iframe
+        var audio = iframeDoc.createElement('audio');
+        audio.id = 'bg-music';
+        audio.loop = true;
+        audio.volume = 0.5;
+        
+        var source = iframeDoc.createElement('source');
+        source.src = 'sitemaker/music/background.mp3'; // Путь к файлу
+        source.type = 'audio/mpeg';
+        
+        audio.appendChild(source);
+        iframeDoc.body.appendChild(audio);
+        
+        // Пытаемся воспроизвести
+        var playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function() {
+                console.log('Автовоспроизведение заблокировано в iframe');
+            });
+        }
+    }
+}
 
 function setIcons() {
     $.each(iframe.contents().find('[data-sm-text^="TIMING_"'), function (k, v) {
