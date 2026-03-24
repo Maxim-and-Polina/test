@@ -1381,7 +1381,7 @@ function initBackgroundMusic() {
         audio.volume = 0.5;
         
         var source = iframeDoc.createElement('source');
-        source.src = 'sitemaker/music/background.mp3'; // Путь к файлу
+        source.src = 'music/background.mp3'; // Путь к файлу
         source.type = 'audio/mpeg';
         
         audio.appendChild(source);
