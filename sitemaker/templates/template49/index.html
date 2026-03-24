@@ -702,12 +702,6 @@
                 if (typeof window.parent.demo_view != 'undefined') {
                     // для демо
                     var demo_view = window.parent.demo_view;
-
-                    if (demo_view) {
-                        $('[data-sm-tel]').toggleClass('sm-demo_view', true);
-                        $('[data-sm-contact-mes]').toggleClass('sm-demo_view', true);
-                        $('[data-sm-anketa-send]').toggleClass('sm-hidden', true);
-                    }
                 }
 				
                 function checkVisibility(element, callback) {
