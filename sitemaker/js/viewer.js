@@ -1311,6 +1311,14 @@ function loadTemplateData() {
             template_val = d;
             iframe.prop('src', 'sitemaker/templates/' + template_val.folder + '/index.html');
             $(iframe).on('load', function() {
+                
+                // Ждём загрузки контента iframe
+                setTimeout(function() {
+                    loadData();
+                    // Вызываем инициализацию музыки
+                    initBackgroundMusic();
+                }, 500);
+                
                 loadData();
             });
             
