@@ -709,7 +709,7 @@ i[data-sm-fyear],i[data-sm-tmonth] {
 }
 
 .sm-form .radio-input:checked {
-    background-image: url(/sitemaker/images/radio.svg?v=4)
+    background-image: url(/sitemaker/images/radio.svg)
 }
 
 .sm-form__drinks[data-sm-anketa-toggle],.sm-form_right[data-sm-anketa-toggle],.sm-survey__body .sm-form__row[data-sm-anketa-toggle] {
