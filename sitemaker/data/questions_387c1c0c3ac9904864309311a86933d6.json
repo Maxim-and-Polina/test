@@ -1,15 +1,20 @@
 [
     {
-        "id": "alco[]",
-        "question": "Опрос №1",
-        "type": "1",
+        "id": "",
+        "question": "Ваши предпочтения",
+        "name": "alco[]",
+        "type":"checkbox",
         "answers": [
             {
                 "id": "alco11",
+                "name": "alco[]",
+                "value": "1",
                 "answer": "Шампанское"
             },
             {
                 "id": "alco21",
+                "name": "alco[]",
+                "value": "1",
                 "answer": "Белое вино"
             }
         ]
