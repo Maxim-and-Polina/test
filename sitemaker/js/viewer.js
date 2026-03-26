@@ -1463,10 +1463,8 @@ function fillQuests() {
                     var tn = drinks.find('.ct-alcotpl').prop("tagName");
                     drinks.find(tn + ':not(.ct-alcotpl)').remove();
 
-                    // ===== ОСНОВНОЕ ИСПРАВЛЕНИЕ =====
-                    // type == "1" -> radio, иначе checkbox
+                    // Определяем тип вопроса
                     var isRadio = (v.type == "1");
-                    // ================================
 
                     $.each(v.answers, function (ka, va) {
                         var sornamek = sorname + '_' + va.id;
@@ -1475,22 +1473,19 @@ function fillQuests() {
                         var smbd = smbb.clone();
                         drinks.append(smbd);
                         var chb = $(drinks.find('.ct-alcotpl')[ka]);
+                        var input = chb.find('input');
 
-                        // ===== СОЗДАЁМ RADIO ИЛИ CHECKBOX =====
+                        // Создаём radio или checkbox
                         if (isRadio) {
-                            chb.find('input')
-                                .attr('type', 'radio')
-                                .val(va.id)
-                                .attr('name', sorname)
-                                .attr('id', sornamek);
+                            input.attr('type', 'radio');
+                            input.attr('name', sorname);
                         } else {
-                            chb.find('input')
-                                .attr('type', 'checkbox')
-                                .val(va.id)
-                                .attr('name', sorname + '[]')
-                                .attr('id', sornamek);
+                            input.attr('type', 'checkbox');
+                            input.attr('name', sorname + '[]');
                         }
-                        // ====================================
+                        
+                        input.val(va.id);
+                        input.attr('id', sornamek);
 
                         chb.find('[data-sm-alcoitem]')
                             .attr('for', sornamek)
