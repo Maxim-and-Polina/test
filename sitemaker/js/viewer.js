@@ -1425,20 +1425,6 @@ function setFontSize() {
 //
 function fillQuests() {
     console.log('fillQuests вызвана');
-    
-    // ===== УДАЛЯЕМ СТАТИЧЕСКИЕ ЧЕКБОКСЫ ИЗ HTML =====
-    var $iframe = $('iframe');
-    var staticCheckboxes = $iframe.contents().find('.sm-form__drinks .ct-alcotpl');
-    if (staticCheckboxes.length > 0) {
-        console.log('Удаляем статические checkbox:', staticCheckboxes.length);
-        staticCheckboxes.remove();
-    }
-    
-    // Также удаляем пустые контейнеры
-    var emptyContainers = $iframe.contents().find('.sm-form__drinks:empty');
-    emptyContainers.remove();
-    // ===============================================
-    
     if (template_val && template_val.questions && template_val.questions.length > 0) {
         var smb = $iframe.contents().find('[data-sm-anketa-toggle]');
         var ins = '';
@@ -1692,29 +1678,3 @@ function initBackgroundMusic() {
         console.error('Music error:', e);
     }
 }
-// Добавляем стили для radio (можно добавить в функцию loadTemplate)
-var style = $('iframe').contents().find('head').append(`
-    <style>
-        .ct-alcotpl input[type="radio"] {
-            width: 18px !important;
-            height: 18px !important;
-            margin-right: 10px !important;
-            cursor: pointer !important;
-            display: inline-block !important;
-        }
-        .ct-alcotpl label {
-            cursor: pointer !important;
-            font-size: 16px !important;
-            display: inline-block !important;
-        }
-        .ct-alcotpl {
-            display: flex !important;
-            align-items: center !important;
-            margin: 12px 0 !important;
-        }
-        [data-sm-anketa-toggle] {
-            display: block !important;
-            padding: 20px !important;
-        }
-    </style>
-`);
