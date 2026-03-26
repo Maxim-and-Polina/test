@@ -1,5 +1,5 @@
 var inp;
-var cursect = 0;1
+var cursect = 0;
 var sections = [];
 var offsections = [];
 let template_val = {};
