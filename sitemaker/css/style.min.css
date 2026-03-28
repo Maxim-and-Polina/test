@@ -1,5 +1,5 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
-@keyframes slideInLeft {1
+@keyframes slideInLeft {
     0% {
         transform: translateX(-100px);
         opacity: 0
