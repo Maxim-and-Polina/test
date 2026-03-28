@@ -194,6 +194,9 @@ a {
     line-height: 154px;
     color: var(--clr-text-1)
 }
+ span.sep {
+    line-height: 71px;
+    }
 
 .sm-background-photo {
     background-size: cover;
@@ -228,7 +231,11 @@ a {
     .sm-smaller .sm-timer-time_number-span {
         font-size:32px
     }
-
+    
+    span.sep {
+    line-height: 31px;
+    }
+    
     .sm-smaller .sm-manropeRegular-20-18 {
         font-size: 14px;
         margin-top: 2px
