@@ -314,8 +314,8 @@ a.clr {
     color: var(--clr-text-2);
 }
 @media (max-width: 500px) {
-    .mens {
-    margin: 0px 0px 0px 0px;
+ .mens {
+    margin: -20px 0px -10px 240px;
     }
 
 a.clr {
