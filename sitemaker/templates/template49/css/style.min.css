@@ -195,7 +195,7 @@ a {
     color: var(--clr-text-1)
 }
  .sm-timer span.sep {
-    line-height: 71px !important;
+    line-height: 71px;
  }
 
 .sm-background-photo {
