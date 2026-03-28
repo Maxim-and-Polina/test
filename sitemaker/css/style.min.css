@@ -316,7 +316,7 @@ a.clr {
 @media (max-width: 500px) {
     .mens {
     margin: 0px 0px 0px 0px;
-}
+    }
 
 a.clr {
     cursor: default;
@@ -326,6 +326,7 @@ a.clr {
     font-size: 14px;
     line-height: 120%;
     color: var(--clr-text-2);
+    }
 }
 .sm-madewithlove img {
     width: 120px;
