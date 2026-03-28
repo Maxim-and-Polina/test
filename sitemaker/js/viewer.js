@@ -442,7 +442,7 @@ function updateStyleForm(styleTag, prefix, color) {
     updateStyleRule(styleTag, prefix + ' ::-webkit-input-placeholder', 'color:' + color + '!important');
     updateStyleRule(styleTag, prefix + ' ::-moz-placeholder', 'color:' + color + '!important');
     updateStyleRule(styleTag, prefix + ' :-ms-input-placeholder', 'color:' + color + '!important');
-    updateStyleRule(styleTag, prefix + ' :-moz-placeholder', 'color:' + color + '!important');
+    updateStyleRule(styleTag, prefix + ' :-moz-', 'color:' + color + '!important');
     updateStyleRule(styleTag, prefix + ' ::placeholder', 'color:' + color + '!important');
     updateStyleRule(styleTag, prefix + ' input', 'border-color:' + color + '!important');
     updateStyleRule(styleTag, prefix + ' textarea', 'border-color:' + color + '!important');
@@ -985,13 +985,13 @@ function loadTemplate(){
                                     }
                                 })
 
-                                if (typeof v.type != 'undefined' && v.type == '1') {
+                               /* if (typeof v.type != 'undefined' && v.type == '1') {
                                     var smbi = iframe.contents().find('[data-sm-anketa-name]')[0];
                                     var smbd = $(smbi).clone();
                                     drinks.append(smbd)
                                     var inp = drinks.find('[data-sm-anketa-name]');
-                                    //inp.attr('name', forqu).attr('id', forqu + '_' + ko).attr('placeholder', 'Ваш ответ').removeAttr('data-sm-anketa-name');
-                                }
+                                    inp.attr('name', forqu).attr('id', forqu + '_' + ko).attr('placeholder', 'Ваш ответ').removeAttr('data-sm-anketa-name');
+                                }*/
 
                                 smbb.remove();
                                 drinks.find('.ct-alcotpl [name="alco[]"]').parents('.ct-alcotpl').remove();
