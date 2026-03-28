@@ -300,6 +300,20 @@ input,label {
     gap: 5px
 }
 
+.mens {
+    margin: -80px 0px -50px 815px;
+}
+
+a.clr {
+    cursor: default;
+    text-align: center;
+    font-family: "SMTextsFont", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--clr-text-2);
+}
+
 .sm-madewithlove img {
     width: 120px;
     vertical-align: middle;
