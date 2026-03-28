@@ -847,17 +847,34 @@
     
     // Функция "Спасибо"
     function thankYou() {
-        console.log('✅ thankYou вызвана');
-        var thanksDiv = document.querySelector('.sm-thanks');
-        if (thanksDiv) {
-            thanksDiv.style.display = 'flex';
-            setTimeout(function() {
-                thanksDiv.style.display = 'none';
-            }, 3000);
-        } else {
-            alert('Спасибо! Ваш ответ сохранен');
-        }
+    console.log('✅ thankYou вызвана');
+    
+    var thanksDiv = document.querySelector('.sm-thanks');
+    
+    if (thanksDiv) {
+        console.log('✅ Элемент .sm-thanks найден');
+        
+        // Убираем все скрывающие стили
+        thanksDiv.style.display = 'flex';
+        thanksDiv.style.visibility = 'visible';
+        thanksDiv.style.opacity = '1';
+        
+        // Также удаляем классы, которые могут скрывать элемент
+        thanksDiv.classList.remove('sm-hidden');
+        thanksDiv.classList.remove('hidden');
+        
+        console.log('✅ Элемент показан');
+        
+        // Скрываем через 3 секунды
+        setTimeout(function() {
+            thanksDiv.style.display = 'none';
+            console.log('✅ Элемент скрыт');
+        }, 3000);
+    } else {
+        console.log('❌ Элемент .sm-thanks НЕ найден');
+        alert('Спасибо! Ваш ответ сохранен');
     }
+}
     
     // Функция для сбора данных из анкеты
     function collectFormData() {
