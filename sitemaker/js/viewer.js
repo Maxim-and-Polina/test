@@ -939,7 +939,7 @@ function loadTemplate(){
                         ins = ' > .sm-form_preferences';
                     }
                     $.each(template_val.questions, function (k, v) {
-                        var forqu = 'quest-' + v.id;
+                        var forqu = 'quest_' + v.id;
                         if (smb.length > 0) {
                             $.each(smb, function (ko, vo) {
                                 var smbt = $(smb.find('div')[0]).clone();
