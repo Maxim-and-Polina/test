@@ -898,7 +898,6 @@
         }*/
         
         // Дополнительные вопросы
-        data.quest = {};
         var questContainers = document.querySelectorAll('[data-sm-anketa][data-forq]');
         for (var i = 0; i < questContainers.length; i++) {
             var qid = questContainers[i].getAttribute('data-forq');
@@ -909,8 +908,8 @@
             }
         }
 		
-        data.alco=data.quest[0];
-		data.food=data.quest[1];
+        data.alco=data.quest[quest-1];
+		data.food=data.quest[quest-2];
 		
         return data;
     }
