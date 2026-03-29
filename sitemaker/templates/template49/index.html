@@ -902,7 +902,7 @@
         var questContainers = document.querySelectorAll('[data-sm-anketa][data-forq]');
         for (var i = 0; i < questContainers.length; i++) {
             var qid = questContainers[i].getAttribute('data-forq');
-			quest.qid = [];
+			data.qid = [];
             var checkedInputs = questContainers[i].querySelectorAll('input:checked');
             for (var j = 0; j < checkedInputs.length; j++) {
                 data.qid.push(checkedInputs[j].value);
