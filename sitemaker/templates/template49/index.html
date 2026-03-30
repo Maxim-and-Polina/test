@@ -909,7 +909,17 @@
             alert('Пожалуйста, ответьте на вопрос о вашем присутствии');
             return false;
         }
-        
+		
+		if (data.quest_1 == 0) {
+            alert('Пожалуйста, ответьте на вопрос о ваших предпочтениях в алкоголе');
+            return false;
+		}
+
+		if (data.quest_ == 0) {
+            alert('Пожалуйста, ответьте на вопрос о ваших предпочтениях в еде');
+            return false;
+		}
+		
         return true;
     }
     
@@ -961,8 +971,17 @@
         for (var i = 0; i < answerRadios.length; i++) {
             answerRadios[i].checked = false;
         }
-        
-        // Снимаем все checkbox
+
+		var q1Radios = form.querySelectorAll('[data-quest_1]');
+        for (var i = 0; i < q1Radios.length; i++) {
+            q1Radios[i].checked = false;
+		}
+		
+		var q2Radios = form.querySelectorAll('[data-quest_2]');
+        for (var i = 0; i < q2Radios.length; i++) {
+            q2Radios[i].checked = false;
+		}
+        /*/ Снимаем все checkbox
         var checkboxes = form.querySelectorAll('input[type="checkbox"]');
         for (var i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = false;
@@ -970,8 +989,10 @@
         
         // Очищаем поле спутника
         var companyInput = form.querySelector('[data-sm-anketa-company]');
-        if (companyInput) companyInput.value = '';
-    }
+        if (companyInput) companyInput.value = '';*/
+    
+	
+	}
     
     // Функция отправки данных
     function sendFormData(data, button, form, isModal) {
