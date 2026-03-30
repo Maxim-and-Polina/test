@@ -914,17 +914,16 @@
     }
     
     // Функция показа сообщения "Спасибо"
-   function showThankYou() {
-    console.log('showThankYou called');
+   function showThankYou(isModal) {
+    console.log('showThankYou called, isModal:', isModal);
     
-    // Проверяем, открыто ли модальное окно
-    var modal = document.querySelector('#modal, .sm-modal');
-    var isModalOpen = modal && modal.style.display === 'flex';
-    
-    // Если модальное окно открыто, закрываем его
-    if (isModalOpen) {
-        modal.style.display = 'none';
-    }
+    // Если это отправка из модального окна, сначала закрываем его
+    if (isModal) {
+        var modal = document.querySelector('#modal, .sm-modal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+	}
     
     // Небольшая задержка
     setTimeout(function() {
