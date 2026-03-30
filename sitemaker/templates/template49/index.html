@@ -916,12 +916,7 @@
     // Функция показа сообщения "Спасибо"
    function showThankYou(isModal) {
     console.log('showThankYou called, isModal:', isModal);
-    
-    // Если это модальное окно, закрываем его
-    if (isModal) {
-        closeModal();
-    }
-    
+
     // Небольшая задержка
     setTimeout(function() {
         var thanksDiv = document.querySelector('.sm-thanks');
@@ -940,6 +935,11 @@
             alert('Спасибо! Ваш ответ сохранен');
         }
     }, 100);
+	   
+	   // Если это модальное окно, закрываем его
+    if (isModal) {
+        closeModal();
+	}
 }
     
     // Функция закрытия модального окна
