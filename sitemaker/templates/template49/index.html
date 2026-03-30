@@ -910,12 +910,12 @@
             return false;
         }
 		
-		if (data.quest_alco === null) {
+		if (typeof data.quest_alco == 'undefined') {
             alert('Пожалуйста, ответьте на вопрос о ваших предпочтениях в алкоголе');
             return false;
 		}
 
-		if (data.quest_food === null) {
+		if (typeof data.quest_food == 'undefined') {
             alert('Пожалуйста, ответьте на вопрос о ваших предпочтениях в еде');
             return false;
 		}
