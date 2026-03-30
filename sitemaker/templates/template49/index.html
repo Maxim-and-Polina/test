@@ -914,26 +914,39 @@
     }
     
     // Функция показа сообщения "Спасибо"
-   function showThankYou(isModal) {
-    console.log('showThankYou вызвана, isModal:', isModal);
+   ffunction showThankYou() {
+    console.log('showThankYou called');
     
-    if (isModal) {
-        // Для модального окна используем alert
-        alert('Спасибо! Ваш ответ сохранен');
-    } else {
-        // Для основной формы показываем красивый блок
+    // Проверяем, открыто ли модальное окно
+    var modal = document.querySelector('#modal, .sm-modal');
+    var isModalOpen = modal && modal.style.display === 'flex';
+    
+    // Если модальное окно открыто, закрываем его
+    if (isModalOpen) {
+        modal.style.display = 'none';
+    }
+    
+    // Небольшая задержка
+    setTimeout(function() {
         var thanksDiv = document.querySelector('.sm-thanks');
+        
         if (thanksDiv) {
             thanksDiv.style.display = 'flex';
             thanksDiv.style.visibility = 'visible';
             thanksDiv.style.opacity = '1';
+            thanksDiv.style.position = 'fixed';
+            thanksDiv.style.top = '50%';
+            thanksDiv.style.left = '50%';
+            thanksDiv.style.transform = 'translate(-50%, -50%)';
+            thanksDiv.style.zIndex = '1000000';
+            
             setTimeout(function() {
                 thanksDiv.style.display = 'none';
             }, 3000);
         } else {
             alert('Спасибо! Ваш ответ сохранен');
         }
-    }
+    }, 100);
 }
     
     // Функция закрытия модального окна
