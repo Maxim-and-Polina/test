@@ -914,62 +914,25 @@
     }
     
     // Функция показа сообщения "Спасибо"
-    function showThankYou() {
-    console.log('thankYou called');
+   function showThankYou(isModal) {
+    console.log('showThankYou вызвана, isModal:', isModal);
     
-    // 1. Пытаемся найти элемент .sm-thanks на всей странице
-    var thanksDiv = document.querySelector('.sm-thanks');
-    
-    // 2. Если не нашли, возможно, он внутри модального окна (которое ещё открыто)
-    if (!thanksDiv) {
-        thanksDiv = document.querySelector('.sm-modal .sm-thanks');
-    }
-    
-    // 3. Если элемент найден, показываем его
-    if (thanksDiv) {
-        // Принудительно показываем элемент (убираем возможные скрытия)
-        thanksDiv.style.display = 'flex';
-        thanksDiv.style.visibility = 'visible';
-        thanksDiv.style.opacity = '1';
-        thanksDiv.style.position = 'fixed';
-        thanksDiv.style.top = '50%';
-        thanksDiv.style.left = '50%';
-        thanksDiv.style.transform = 'translate(-50%, -50%)';
-        thanksDiv.style.zIndex = '100000';
-        
-        // Скрываем через 3 секунды
-        setTimeout(function() {
-            thanksDiv.style.display = 'none';
-        }, 3000);
+    if (isModal) {
+        // Для модального окна используем alert
+        alert('Спасибо! Ваш ответ сохранен');
     } else {
-        // 4. Если элемента нет, создаём временное всплывающее окно
-        var popup = document.createElement('div');
-        popup.innerHTML = `
-            <div style="
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: #4CAF50;
-                color: white;
-                padding: 20px 40px;
-                border-radius: 10px;
-                font-size: 18px;
-                font-weight: bold;
-                z-index: 1000000;
-                text-align: center;
-                box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-                font-family: Arial, sans-serif;
-            ">
-                ✅ Спасибо!<br>
-                <span style="font-size: 14px;">Ваш ответ сохранен</span>
-            </div>
-        `;
-        document.body.appendChild(popup);
-        
-        setTimeout(function() {
-            popup.remove();
-        }, 3000);
+        // Для основной формы показываем красивый блок
+        var thanksDiv = document.querySelector('.sm-thanks');
+        if (thanksDiv) {
+            thanksDiv.style.display = 'flex';
+            thanksDiv.style.visibility = 'visible';
+            thanksDiv.style.opacity = '1';
+            setTimeout(function() {
+                thanksDiv.style.display = 'none';
+            }, 3000);
+        } else {
+            alert('Спасибо! Ваш ответ сохранен');
+        }
     }
 }
     
@@ -1134,6 +1097,81 @@
     } else {
         initAllButtons();
     }
+})();
+</script>
+<script>
+// ============================================
+// СОЗДАНИЕ ЭЛЕМЕНТА .sm-thanks ДЛЯ МОДАЛЬНОГО ОКНА
+// ============================================
+
+(function() {
+    // Проверяем, есть ли уже элемент .sm-thanks
+    if (!document.querySelector('.sm-thanks')) {
+        console.log('Создаём элемент .sm-thanks');
+        
+        // Создаём элемент
+        var thanksDiv = document.createElement('div');
+        thanksDiv.className = 'sm-thanks';
+        thanksDiv.innerHTML = `
+            <div style="
+                text-align: center;
+                padding: 20px;
+            ">
+                <p style="font-size: 24px; margin: 0 0 10px 0;">Спасибо!</p>
+                <span style="font-size: 18px;">за ваш ответ!</span>
+            </div>
+        `;
+        
+        // Стили для элемента
+        thanksDiv.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            z-index: 1000000;
+            display: none;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            min-width: 250px;
+        `;
+        
+        document.body.appendChild(thanksDiv);
+        console.log('✅ Элемент .sm-thanks создан');
+    }
+    
+    // Функция показа сообщения
+    window.showThankYou = function() {
+        console.log('thankYou called');
+        
+        var thanksDiv = document.querySelector('.sm-thanks');
+        if (thanksDiv) {
+            thanksDiv.style.display = 'flex';
+            
+            // Если модальное окно открыто, закрываем его
+            var modal = document.querySelector('#modal, .sm-modal');
+            if (modal && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+            }
+            
+            // Скрываем через 3 секунды
+            setTimeout(function() {
+                thanksDiv.style.display = 'none';
+            }, 3000);
+        } else {
+            alert('Спасибо! Ваш ответ сохранен');
+        }
+    };
+    
+    // Если функция уже существует, переопределяем её
+    if (typeof window.oldThankYou === 'undefined') {
+        window.oldThankYou = window.thankYou;
+    }
+    
+    console.log('✅ Функция thankYou готова');
 })();
 </script>
         <link rel="stylesheet" href="../../css/style_intro.min.css">
