@@ -971,51 +971,21 @@ function loadTemplate(){
                                 drinks.find(tn + ':not(.ct-alcotpl)').remove();
 
                                 $.each(v.answers, function (ka, va) {
-                                    var sornamek = sorname + '_' + va.id;
-                                    var sornamev = va.answer;
-    
-                                    // КЛОН: создаём копию шаблонного элемента
-                                    var smbd = smbb.clone();
-                                    drinks.append(smbd);
-    
-                // Находим последний добавленный элемент
-    var chb = $(drinks.find('.ct-alcotpl').last());
+                                   var smbd = smbb.clone();
+    drinks.append(smbd)
+    var chb = $(drinks.find('.ct-alcotpl')[ka]);
     var input = chb.find('input');
     
-    // Настройка input
-    if (isRadio) {
-        input.attr('type', 'radio');
-        input.attr('name', sorname);
-    } else {
-        input.attr('type', 'checkbox');
-        input.attr('name', sorname + '[]');
-    }
-    input.val(va.id);
-    input.attr('id', sornamek);
+    input.val(va.id).attr('name', forqu + '[]').attr('id', forqu + '-' + ko + '_' + va.id);
     
-    // НЕ УДАЛЯЕМ старый [data-sm-alcoitem], а просто меняем его содержимое
-    var label = chb.find('[data-sm-alcoitem]');
-    if (label.length) {
-        label.attr('for', sornamek);
-        label.html(sornamev);
-    } else {
-        // Если нет, создаём новый
-        var answerSpan = $('<span>', {
-            'class': 'sm-form__item-radio',
-            'for': sornamek
-        });
-        answerSpan.html(sornamev);
-        chb.append(answerSpan);
-    }
-    
-    // Добавляем disabled
+    // Добавляем disabled, если указано в JSON
     if (va.disabled === true || va.disabled === "true") {
+        input.attr('disabled', 'disabled');
         input.prop('disabled', true);
         chb.addClass('sm-disabled-option');
     }
-});
     
-     /*if (chb.find('[data-sm-alcoitem]').parents('label').length == 0) {
+    if (chb.find('[data-sm-alcoitem]').parents('label').length == 0) {
         chb.find('[data-sm-alcoitem]').attr('for', forqu + '-' + ko + '_' + va.id).html(va.answer);
     } else {
         chb.find('[data-sm-alcoitem]').parents('label').attr('for', forqu + '-' + ko + '_' + va.id)
