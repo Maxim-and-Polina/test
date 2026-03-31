@@ -1478,10 +1478,23 @@ function fillQuests() {
                         var chb = $(drinks.find('.ct-alcotpl')[ka]);
                         var input = chb.find('input');
 
-                        input.attr('type', 'radio');
-                        input.attr('name', sorname);
-                        input.val(va.id);
-                        input.attr('id', sornamek);
+                        if (isRadio) {
+        input.attr('type', 'radio');
+        input.attr('name', sorname);
+    } else {
+        input.attr('type', 'checkbox');
+        input.attr('name', sorname + '[]');
+    }
+    
+    // Значение
+    input.val(va.value || va.id);
+    input.attr('id', sornamek);
+    
+    // ===== ДИСАБЛЕД (работает и с булевым true, и со строкой "true") =====
+    if (va.disabled === true) {
+        input.prop('disabled', true);
+        chb.addClass('sm-disabled-option');
+    }
                         
                         // Добавляем стили для radio
                         input.css({
