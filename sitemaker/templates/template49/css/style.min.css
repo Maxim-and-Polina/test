@@ -688,7 +688,7 @@ a {
 }
 
 .sm-moment__wrapper-decr_text {
-    text-align: left;
+    text-align: justify;
     font-size: 20px;
     margin-top: -40px
 }
