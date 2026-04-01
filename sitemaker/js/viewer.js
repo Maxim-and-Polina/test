@@ -644,7 +644,7 @@ function loadTemplate(){
         iframe.contents().find('[data-sm-text="' + ik.toUpperCase() + '"]').html(iv).attr('title', ivC);
         iframe.contents().find('[data-sm-date="' + ik.toUpperCase() + '"]').attr('data-date', iv).attr('title', ivC);
 
-        if(ik == 'GROOM_TEL' || ik == 'BRIDE_TEL')
+        if(ik == 'GROOM_TEL' || ik == 'COORD_TEL')
         {
             iv1 = phonePrepareView(iv);
             iv2 = phonePrepare(iv);
@@ -740,7 +740,7 @@ function loadTemplate(){
     var palette = iframe.contents().find('[data-sm-text="DRESSCODE_COLORS"]');
     palette.toggleClass('sm-hidden', d_palette != '1');
 
-    iframe.contents().find('[data-sm-contact-bride]').toggleClass('sm-hidden', data_value['BRIDE_TEL'] == '');
+    iframe.contents().find('[data-sm-contact-bride]').toggleClass('sm-hidden', data_value['COORD_TEL'] == '');
     iframe.contents().find('[data-sm-contact-groom]').toggleClass('sm-hidden', data_value['GROOM_TEL'] == '');
     iframe.contents().find('[data-sm-href="LOCATION_MAP"]').toggle(data_value['LOCATION_MAP'] != '');
 
