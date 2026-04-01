@@ -707,7 +707,7 @@ a {
         padding-right: 0;
         font-size: 18px;
         line-height: 20px;
-        text-align: left;
+        text-align: center;
         margin-top: 0
     }
 }
@@ -2274,7 +2274,8 @@ a {
     .sm-date__titel div {
         font-size: 18px;
         line-height: 20px;
-        margin: 16px auto 0
+        margin: 16px auto 0;
+        text-align: center
     }
 
     .sm-date__date span {
