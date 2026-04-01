@@ -980,12 +980,7 @@ function loadTemplate(){
                                 });
                                 // ===== КОНЕЦ СОЗДАНИЯ ОТВЕТОВ =====
                                 // После всех $.each, перед questfilled = true
-// Удаляем пустой шаблонный radio
-var emptyTemplate = iframe.contents().find('.sm-form__drinks-check .ct-alcotpl input[value="[]"]');
-if (emptyTemplate.length) {
-    emptyTemplate.closest('.sm-form__drinks-check').remove();
-    console.log('✅ Пустой шаблонный radio удалён');
-}
+                                
                                 // Для текстовых вопросов (type == 2)
                                 if (typeof v.type != 'undefined' && v.type == '2') {
                                     var smbi = iframe.contents().find('[data-sm-anketa-name]')[0];
