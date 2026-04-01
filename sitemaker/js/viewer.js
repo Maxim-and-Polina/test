@@ -504,12 +504,15 @@ function loadTemplate(){
                         link = 'https://wa.me/' + iv.value;
                         break;
                     case 3:
-                        link = 'https://t.me/' + iv.value;
+                        link = 'https://vk.com/' + iv.value;
                         break;
                     case 4:
                         link = 'mailto:' + iv.value;
                         break;
                     case 5:
+                        link = 'https://t.me/' + iv.value;
+                        break;
+                    case 6:
                         link = '';
                         break;
                 }
