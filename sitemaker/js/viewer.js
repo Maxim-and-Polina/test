@@ -1,7 +1,7 @@
 var inp;
 var cursect = 0;
 var sections = [];
-var offsections = [];1
+var offsections = [];
 let template_val = {};
 let template_data = {};
 var data_value = {};
