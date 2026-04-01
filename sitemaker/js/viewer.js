@@ -997,7 +997,7 @@ function loadTemplate(){
 
                                 // Очистка временных элементов
                                 smbb.remove();
-                                drinks.find('.ct-alcotpl [name="alco[]"]').parents('.ct-alcotpl').remove();
+                                drinks.find('.ct-alcotpl [name="alco"]').parents('.ct-alcotpl').remove();
                                 drinks.find('.ct-alcotpl').removeClass('ct-alcotpl');
                                 iframe.contents().find('[data-sm-anketa-toggle]').removeClass('sm-hidden');
                                 iframe.contents().find('[data-forq]').removeClass('sm-hidden');
