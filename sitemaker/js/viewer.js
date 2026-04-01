@@ -1149,7 +1149,7 @@ function loadTemplate(){
     var buts = {};
     buts['location_map'] = 'Как добраться'
     buts['wish_wishlist'] = 'Список подарков'
-    buts['contact_link'] = 'Связаться';
+    buts['contact_link'] = 'Написать нам';
 
     $.each(buts, function (k, v) {
         if (data_value[k.toUpperCase() + '_BUTTON_TITLE'] && data_value[k.toUpperCase() + '_BUTTON_TITLE'] != '') {
