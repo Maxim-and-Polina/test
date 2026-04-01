@@ -197,11 +197,11 @@ html.animating body.sm-scroll_speed-3 {
     user-select: none
 }
 section.sm-dress-code.sm-edit.jsScroll__scrolled {
-    --url-bg: url(../img/bg.webp), #f6f4ee00;
+    --url-bg: url(../img/bg.webp), #f6f4ee00
 }
 @media (max-width: 450px) {
     section.sm-dress-code.sm-edit.jsScroll__scrolled {
-        --url-bg: url(../img/bg.webp), #f6f4ee00;
+        --url-bg: url(../img/bg.webp), #f6f4ee00
     }
 }
 input,label {
