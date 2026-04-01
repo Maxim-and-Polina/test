@@ -196,7 +196,14 @@ html.animating body.sm-scroll_speed-3 {
     -ms-user-select: none;
     user-select: none
 }
-
+section.sm-dress-code.sm-edit.jsScroll__scrolled {
+    --url-bg: url(../img/bg.webp), #f6f4ee00;
+}
+@media (max-width: 450px) {
+    section.sm-dress-code.sm-edit.jsScroll__scrolled {
+        --url-bg: url(../img/bg.webp), #f6f4ee00;
+    }
+}
 input,label {
     -webkit-tap-highlight-color: transparent;
     -moz-tap-highlight-color: transparent;
