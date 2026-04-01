@@ -742,8 +742,7 @@ a {
         gap:30px;
         padding: 64px 0;
         -webkit-box-align: start;
-        -ms-flex-align: start;
-        align-items: start
+        -ms-flex-align: start
     }
 }
 
