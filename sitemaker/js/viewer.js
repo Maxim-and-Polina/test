@@ -501,10 +501,10 @@ function loadTemplate(){
             {
                 switch (Number(iv.type)) {
                     case 2:
-                        link = 'https://wa.me/' + iv.value;
+                        link = 'https://vk.com/' + iv.value;
                         break;
                     case 3:
-                        link = 'https://vk.com/' + iv.value;
+                        link = 'https://vk.me/' + iv.value;
                         break;
                     case 4:
                         link = 'mailto:' + iv.value;
