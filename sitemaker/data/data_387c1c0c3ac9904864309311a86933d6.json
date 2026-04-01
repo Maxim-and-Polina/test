@@ -1,6 +1,8 @@
 {
     "GROOM_TEL": "+79229530099",
     "CONTACTS_NAME": "Максим",
+    "COORD_TEL": "+79615696715",
+    "CONTACTS_COORD_NAME": "Анна",
     "CONTACTS_TITLE": "Контакты",
     "BRIDE_TEL": "79229306138",
     "CONTACTS_LINK": {"type": "3", "value": "elder_mdr"},
