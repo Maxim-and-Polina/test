@@ -6,6 +6,12 @@
     box-sizing: border-box
 }
 
+[data-temp-disabled="true"] {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
 :root {
     --clr-text-1: #333333;
     --clr-text-2: #333333;
