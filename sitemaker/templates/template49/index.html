@@ -1159,19 +1159,17 @@ function toggleAdditionalQuestions(container) {
     if (!answerNo) return;
     
     var isNoSelected = answerNo.checked;
-    
     // Находим секцию с дополнительными вопросами внутри указанного контейнера
     var additionalSection = container.querySelector('[data-sm-anketa-toggle]');
     if (!additionalSection) return;
     
     var allInputs = additionalSection.querySelectorAll('input, select, textarea');
     var allContainers = additionalSection.querySelectorAll('.sm-form__block, .sm-form__item-radio');
-    
+	
     if (isNoSelected) {
         // Отключаем всё
         allContainers.forEach(function(container) {
-            container.style.opacity = '0.5';
-            container.style.transition = 'opacity 0.3s';
+            container.style.opacity = '0.5'
         });
         
         allInputs.forEach(function(input) {
