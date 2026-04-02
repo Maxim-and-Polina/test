@@ -67,7 +67,7 @@
 }
 
 .sm-form__item_radio.sm-disabled-option {
-    opacity: 0.5
+    opacity: 0.5 !important 
 }
 .sm-color3 {
     --clr-text-1: #7D868D;
