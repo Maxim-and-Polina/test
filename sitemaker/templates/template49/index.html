@@ -1167,6 +1167,18 @@ function toggleAdditionalQuestions(container) {
     var allContainers = additionalSection.querySelectorAll('.sm-form__block, .sm-form__item-radio');
 	
     if (isNoSelected) {
+
+		// ===== ОЧИЩАЕМ ВСЕ ВЫБРАННЫЕ ЗНАЧЕНИЯ =====
+        allInputs.forEach(function(input) {
+            if (input.type === 'radio' || input.type === 'checkbox') {
+                input.checked = false;  // Снимаем выделение
+            } else if (input.type === 'text' || input.type === 'textarea') {
+                input.value = '';       // Очищаем текстовые поля
+            } else if (input.tagName === 'SELECT') {
+                input.selectedIndex = -1; // Сбрасываем select
+            }
+        });
+		
         // Отключаем всё
         allContainers.forEach(function(container) {
             container.style.opacity = '0.5'
