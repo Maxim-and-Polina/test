@@ -964,7 +964,7 @@ function loadTemplate(){
                                     // Добавляем disabled, если указано в JSON
                                     if (va.disabled === true || va.disabled === "true") {
                                         input.attr('disabled', 'disabled');
-                                        input.attr('permanently_disabled','true');
+                                        input.attr('permanently-disabled','true');
                                         input.prop('disabled', true);
                                         chb.addClass('sm-disabled-option');
                                     }
