@@ -921,18 +921,16 @@
         if (data.answer == 0) {
             alert('Пожалуйста, ответьте на вопрос о вашем присутствии');
             return false;
-        }
-		
+        }else if(data.answer == 1){
 		if (typeof data.quest_alco == 'undefined') {
             alert('Пожалуйста, ответьте на вопрос о ваших предпочтениях в алкоголе');
             return false;
 		}
-
 		if (typeof data.quest_food == 'undefined') {
             alert('Пожалуйста, ответьте на вопрос о ваших предпочтениях в еде');
             return false;
 		}
-		
+		}
         return true;
     }
     
