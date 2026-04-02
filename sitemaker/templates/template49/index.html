@@ -1145,6 +1145,70 @@
 		}
     });
 })();
+function toggleAdditionalQuestions() {
+    var answerNo = document.querySelector('[data-answer][value="2"]');
+    var answerYes = document.querySelector('[data-answer][value="1"]');
+    
+    if (!answerNo) return;
+    
+    var isNoSelected = answerNo.checked;
+    var additionalSection = document.querySelector('[data-sm-anketa-toggle]');
+    
+    if (!additionalSection) return;
+    
+    var allInputs = additionalSection.querySelectorAll('input, select, textarea');
+    var allContainers = additionalSection.querySelectorAll('.sm-form__block');
+    
+    if (isNoSelected) {
+        // Отключаем всё с анимацией
+        allContainers.forEach(function(container) {
+            container.style.opacity = '0.5';
+            container.style.transition = 'opacity 0.3s';
+        });
+        
+        allInputs.forEach(function(input) {
+            input.disabled = true;
+            input.setAttribute('disabled', 'disabled');
+        });
+        
+        // Дополнительно скрываем кнопку отправки?
+        var sendBtn = document.querySelector('[data-sm-anketa-send]');
+        if (sendBtn) {
+            sendBtn.style.opacity = '0.5';
+            sendBtn.disabled = true;
+        }
+        
+    } else if (answerYes && answerYes.checked) {
+        // Включаем обратно
+        allContainers.forEach(function(container) {
+            container.style.opacity = '1';
+        });
+        
+        allInputs.forEach(function(input) {
+            // Не включаем те, у которых есть атрибут data-permanently-disabled
+            if (!input.hasAttribute('data-permanently-disabled')) {
+                input.disabled = false;
+                input.removeAttribute('disabled');
+            }
+        });
+        
+        var sendBtn = document.querySelector('[data-sm-anketa-send]');
+        if (sendBtn) {
+            sendBtn.style.opacity = '1';
+            sendBtn.disabled = false;
+        }
+    }
+}
+
+// Обработчик изменения
+$(document).on('change', '[data-answer]', function() {
+    toggleAdditionalQuestions();
+});
+
+// При загрузке страницы
+$(document).ready(function() {
+    toggleAdditionalQuestions();
+});
 </script>
         <link rel="stylesheet" href="../../css/style_intro.min.css">
         <div class="sm-opener" data-intro="3">
