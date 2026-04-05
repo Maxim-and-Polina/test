@@ -1002,11 +1002,20 @@
             console.log('📨 Ответ от сервера:', result);
               // ** НОВОЕ: обработка результата **
             if (result.result === 'success') {
-                console.log('✅ Отправка успешна:', result.message);
-            // Показываем "Спасибо"
+            // Успех
             showThankYou(isModal);
-            // Очищаем форму
             clearForm(form);
+        	} else {
+            	// ===== ОБРАБОТКА ОШИБКИ С ПОДСВЕТКОЙ ПОЛЯ =====
+            	console.error('❌ Ошибка от сервера:', result.message);
+            	alert('Ошибка: ' + result.message);
+            
+            	// Подсвечиваем и очищаем поле с ошибкой
+            	if (result.field) {
+                	highlightAndClearField(form, result.field);
+            	}
+            	// Форму НЕ очищаем полностью при ошибке
+        	}
             
             // Разблокируем кнопку
             button.disabled = false;
@@ -1030,7 +1039,50 @@
             button.textContent = originalText;
         });
     }
+    // ===== НОВАЯ ФУНКЦИЯ: ПОДСВЕТКА И ОЧИСТКА КОНКРЕТНОГО ПОЛЯ =====
+	function highlightAndClearField(container, fieldName) {
+    	var field = null;
     
+    	// Находим поле по имени
+    	switch (fieldName) {
+        	case 'name':
+            	field = container.querySelector('[data-sm-anketa-name]');
+            	break;
+        	case 'answer':
+            	field = container.querySelector('[data-answer]');
+            	break;
+        	case 'quest_alco':
+            	field = container.querySelector('[name="quest_alco[]"], [name="quest_alco"]');
+            	break;
+        	case 'quest_food':
+            	field = container.querySelector('[name="quest_food[]"], [name="quest_food"]');
+            	break;
+        	default:
+            	return;
+    	}
+    
+    	if (!field) return;
+    
+    	// Подсвечиваем поле
+    	var originalBorder = field.style.border;
+    	var originalBackground = field.style.backgroundColor;
+    
+    	field.style.border = '2px solid #f44336';
+    	field.style.backgroundColor = '#ffebee';
+    
+    	// Если это radio/checkbox, снимаем выделение
+	   	 if (field.type === 'radio' || field.type === 'checkbox') {
+        	field.checked = false;
+    	} else if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') {
+        	field.value = '';
+   	 	}
+    
+    	// Убираем подсветку через 3 секунды
+    	setTimeout(function() {
+        	field.style.border = originalBorder;
+        	field.style.backgroundColor = originalBackground;
+    	}, 3000);
+	
     // ===== ОСНОВНАЯ ФУНКЦИЯ: ИНИЦИАЛИЗАЦИЯ ВСЕХ КНОПОК =====
     function initAllButtons() {
         // Находим ВСЕ кнопки отправки на странице
