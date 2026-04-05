@@ -1029,16 +1029,16 @@
     	// Находим поле по имени
     	switch (fieldName) {
         	case 'name':
-            	field = container.querySelector('[data-sm-anketa-name]');
+            	field = container.querySelector('[sm-form__input]');
             	break;
         	case 'answer':
-            	field = container.querySelector('[data-answer]');
+            	field = container.querySelector('[sm-form__item]');
             	break;
         	case 'quest_alco':
-            	field = container.querySelector('[name="quest_alco[]"], [name="quest_alco"]');
+            	field = container.querySelector('[sm-form__drinks-check mr-40px], [data-forq="quest_alco"]');
             	break;
         	case 'quest_food':
-            	field = container.querySelector('[name="quest_food[]"], [name="quest_food"]');
+            	field = container.querySelector('[sm-form__drinks-check mr-40px], [data-forq="quest_food"]');
             	break;
         	default:
             	return;
