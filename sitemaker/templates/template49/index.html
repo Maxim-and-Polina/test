@@ -1069,12 +1069,13 @@
     
     	// Подсвечиваем поле
     	var originalBorder = field.style.border;
-		var originalBorderRadius = field.style.borderRadius = '5px';
+		var originalBorderRadius = field.style.borderRadius;
     	var originalBackground = field.style.backgroundColor;
     
     	field.style.border = 'solid #bc5d58';
-    	field.style.backgroundColor = 'rgba(188, 93, 88, 0.6)';
 		field.style.borderRadius = '10px';
+    	field.style.backgroundColor = 'rgba(188, 93, 88, 0.4)';
+		
     
     	// Если это radio/checkbox, снимаем выделение
 	   	if (field.children[0].childNodes[1].type === 'radio' || field.children[0].childNodes[1].type === 'checkbox') {
