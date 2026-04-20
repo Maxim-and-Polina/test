@@ -1077,8 +1077,10 @@
     	field.style.backgroundColor = '#ffebee';
     
     	// Если это radio/checkbox, снимаем выделение
-	   	 if (field.type === 'radio' || field.type === 'checkbox') {
-        	field.checked = false;
+	   	if (field.children[0].childNodes[1].type === 'radio' || field.children[0].childNodes[1].type === 'checkbox') {
+        	for (var i = 0; i < field.children[0].childNodes.length; i++) {
+            	field.children[0].childNodes[i].checked = false;
+			}
     	} else if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') {
         	field.value = '';
    	 	}
