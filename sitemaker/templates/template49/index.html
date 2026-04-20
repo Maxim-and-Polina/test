@@ -906,7 +906,7 @@
             alert('Пожалуйста, ответьте на вопрос о выборе горячего');
             return false;
 		}
-		if (typeof data.quest_main_dish == 'undefined') {
+		if (typeof data.quest_side_dish == 'undefined') {
             alert('Пожалуйста, ответьте на вопрос о выборе гарнира');
             return false;
 		}
@@ -962,12 +962,10 @@
         for (var i = 0; i < answerRadios.length; i++) {
             answerRadios[i].checked = false;
         }
-
 		var q1Radios = form.querySelectorAll('[name="quest_alco[]"]');
         for (var i = 0; i < q1Radios.length; i++) {
             q1Radios[i].checked = false;
 		}
-		
 		var q2Radios = form.querySelectorAll('[name="quest_salad[]"]');
         for (var i = 0; i < q2Radios.length; i++) {
             q2Radios[i].checked = false;
