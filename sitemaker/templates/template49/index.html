@@ -974,7 +974,7 @@
         for (var i = 0; i < q1Radios.length; i++) {
             q1Radios[i].checked = false;
 			if (q1Radios[i].defaultValue =="8"){
-				q1Radios[i].setProperty('disabled');
+				q1Radios[i].style.setProperty('disabled', 'true');
 			}
 		}
 		var q2Radios = form.querySelectorAll('[name="quest_salad[]"]');
