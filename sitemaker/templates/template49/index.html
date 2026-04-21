@@ -1099,12 +1099,12 @@
     	// Если это radio/checkbox, снимаем выделение
     	if (field.tagName === 'INPUT' || field.tagName === 'TEXTAREA') {
         	field.value = '';
-   	 	} else if (field.children[0].childNodes[1].type === 'radio' || field.children[0].childNodes[1].type === 'checkbox') {
+   	 	}else if (field.children[0].childNodes[1].type === 'radio' || field.children[0].childNodes[1].type === 'checkbox') {
         	for (var i = 0; i < field.children.length; i++) {
             	field.children[i].childNodes[1].checked = false;
 				field.children[i].childNodes[1].value = i+1;
+			}
 		}
-    
     	// Убираем подсветку через 3 секунды
     	setTimeout(function() {
         	field.style.border = originalBorder;
