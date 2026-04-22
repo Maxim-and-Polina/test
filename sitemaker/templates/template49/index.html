@@ -1246,7 +1246,8 @@ function toggleAdditionalQuestions(container) {
             	input.setAttribute('disabled', 'disabled');
 				input.setAttribute('temp_disabled', 'true');
         }});
-		commentField.placeholder = 'Возможно пищевые ограничения, аллергия или др.';
+		commentField.value = '';
+		//commentField.placeholder = 'Возможно пищевые ограничения, аллергия или др.';
 		commentField.disabled = true;
         commentField.setAttribute('disabled', 'disabled');
 		commentField.setAttribute('temp_disabled', 'true');
