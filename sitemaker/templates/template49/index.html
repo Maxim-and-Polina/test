@@ -1237,8 +1237,8 @@ function toggleAdditionalQuestions(container) {
         // Отключаем всё
         allContainers.forEach(function(container) {
             container.style.opacity = '0.5'
-			commentField.style.opacity = '0.5'
         });
+		commentField.style.opacity = '0.5'
 		
         allInputs.forEach(function(input) {
 			if (!input.hasAttribute('permanently-disabled')) {
@@ -1247,7 +1247,6 @@ function toggleAdditionalQuestions(container) {
 				input.setAttribute('temp_disabled', 'true');
         }});
 		commentField.value = '';
-		//commentField.placeholder = 'Возможно пищевые ограничения, аллергия или др.';
 		commentField.disabled = true;
         commentField.setAttribute('disabled', 'disabled');
 		commentField.setAttribute('temp_disabled', 'true');
@@ -1255,8 +1254,9 @@ function toggleAdditionalQuestions(container) {
         // Включаем обратно
         allContainers.forEach(function(container) {
             container.style.opacity = '1';
-			commentField.style.opacity = '1'
         });
+		commentField.style.opacity = '1'
+		
         allInputs.forEach(function(input) {
             // Не включаем те, у которых есть атрибут data-permanently-disabled
             if (!input.hasAttribute('permanently-disabled')) {
