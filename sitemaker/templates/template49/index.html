@@ -1214,7 +1214,7 @@ function toggleAdditionalQuestions(container) {
     
     var isNoSelected = answerNo.checked;
     // Находим секцию с дополнительными вопросами внутри указанного контейнера
-    var additionalSection = container.querySelector('[data-sm-anketa-toggle]');
+    var additionalSection = container.querySelector('[data-sm-anketa-toggle, data-sm-anketa-comment]');
     if (!additionalSection) return;
     
     var allInputs = additionalSection.querySelectorAll('input, select, textarea');
