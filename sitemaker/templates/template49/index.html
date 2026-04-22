@@ -1221,7 +1221,6 @@ function toggleAdditionalQuestions(container) {
     var allInputs = additionalSection.querySelectorAll('input, select, textarea');
     var allContainers = additionalSection.querySelectorAll('.sm-form__block, .sm-form__item-radio');
 	
-	allInputs.push(commentField);
 	
     if (isNoSelected) {
 
@@ -1238,6 +1237,7 @@ function toggleAdditionalQuestions(container) {
         // Отключаем всё
         allContainers.forEach(function(container) {
             container.style.opacity = '0.5'
+			commentField.style.opacity = '0.5'
         });
 		
         allInputs.forEach(function(input) {
@@ -1246,10 +1246,14 @@ function toggleAdditionalQuestions(container) {
             	input.setAttribute('disabled', 'disabled');
 				input.setAttribute('temp_disabled', 'true');
         }});
+		commentField.disabled = true;
+        commentField.setAttribute('disabled', 'disabled');
+		commentField.setAttribute('temp_disabled', 'true');
     } else {
         // Включаем обратно
         allContainers.forEach(function(container) {
             container.style.opacity = '1';
+			commentField.style.opacity = '1'
         });
         allInputs.forEach(function(input) {
             // Не включаем те, у которых есть атрибут data-permanently-disabled
@@ -1259,6 +1263,9 @@ function toggleAdditionalQuestions(container) {
 				input.removeAttribute('temp_disabled');
             }
         });
+		commentField.disabled = false;
+        commentField.removeAttribute('disabled');
+		commentField.removeAttribute('temp_disabled');
     }
 }
 
