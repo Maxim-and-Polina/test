@@ -187,7 +187,7 @@ a {
 
 .sm-container {
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     padding: 0 16px
 }
 
@@ -1936,7 +1936,6 @@ a {
 }
 
 .sm-footer__shell {
-    margin-top: 120px;
     padding: 40px 0;
     display: -webkit-box;
     display: -ms-flexbox;
