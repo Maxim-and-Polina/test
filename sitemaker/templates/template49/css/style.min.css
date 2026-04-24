@@ -187,8 +187,12 @@ a {
 
 .sm-container {
     max-width: 1280px;
-    margin: 0 auto 60px;
+    margin: 0 auto 0px;
     padding: 0 16px
+}
+
+section.sm-footer.sm-edit.jsScroll__scrolled {
+    margin-bottom: 60px
 }
 
 .sm-cormorantRegular-100-30,.sm-cormorantRegular-100-50 {
